@@ -1,117 +1,285 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henyer Manrique | Portafolio Interactivo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --red-brand: #da1212;
-            --dark-grey: #1a1a1a;
-            --light-grey: #f4f5f7;
-            --text-dark: #2d2d2d;
-            --text-muted: #666666;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henyer Manrique | Portafolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#fbf1e4; --paper:#fffaf3; --wine:#3d1a22; --chili:#d9432b;
+  --saffron:#f4a62a; --clay:#8a5a44; --line:#ecd9c2; --ink:#2b1a17;
+}
+:root[data-theme="dark"]{
+  --sand:#1f1311; --paper:#2a1a17; --wine:#f6e6d3; --chili:#ff7a5c;
+  --saffron:#f4b544; --clay:#d2a58c; --line:#4a312b; --ink:#f6e6d3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.65;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:var(--wine);line-height:1.15}
+a:focus-visible,button:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+nav{position:fixed;top:0;width:100%;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.8rem 5%;background:color-mix(in srgb,var(--sand) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.25rem;color:var(--chili);text-decoration:none}
+.links{display:flex;gap:1.3rem;align-items:center}
+.links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+.links a:hover{color:var(--chili)}
+#theme{background:var(--paper);border:1px solid var(--line);color:var(--ink);border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:1.1rem}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--light-grey);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+main{max-width:1050px;margin:0 auto;padding:0 5%}
+section{padding:4.5rem 0 1rem}
+section>h2{font-size:2rem;margin-bottom:1.5rem}
 
-        /* Barra de Navegación Fija */
-        .navbar {
-            background-color: var(--red-brand);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .navbar .logo {
-            color: white;
-            font-family: 'Merriweather', serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: #ffcccc; }
+/* Hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding-top:8rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;margin-bottom:1rem}
+.hero p{max-width:52ch;color:var(--clay);font-size:1.1rem;margin-bottom:1.5rem}
+.typed{color:var(--chili);font-weight:700;min-height:1.7em;margin-bottom:1rem;font-size:1.15rem}
+.typed::after{content:"|";animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.btn{display:inline-block;background:var(--chili);color:#fff;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn:hover{filter:brightness(1.1)}
+.btn.alt{background:transparent;color:var(--wine);border:2px solid var(--wine);margin-left:.5rem}
+.photo{position:relative}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 24px 24px;border:5px solid var(--saffron);background:var(--line)}
 
-        /* Contenedor Principal */
-        .container {
-            max-width: 1100px;
-            margin: 100px auto 40px; /* Margen superior para la barra fija */
-            padding: 0 5%;
-        }
+/* Tarjetas */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.5rem}
 
-        /* Sección Portada */
-        .hero {
-            background-color: var(--dark-grey);
-            color: white;
-            padding: 3rem;
-            border-radius: 8px;
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        .hero-img {
-            flex: 0 0 280px;
-        }
-        .hero-img img {
-            width: 100%;
-            border-radius: 50%;
-            border: 4px solid var(--red-brand);
-            object-fit: cover;
-        }
-        .hero-text h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-        }
-        .btn-link {
-            display: inline-block;
-            background-color: var(--red-brand);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .btn-link:hover { background-color: #b30e0e; }
+/* Pestañas de proyectos */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.tab{background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:.55rem 1rem;border-radius:999px;cursor:pointer;font:500 .95rem 'DM Sans',sans-serif}
+.tab[aria-selected="true"]{background:var(--wine);color:var(--sand);border-color:var(--wine)}
+.panel{display:none}
+.panel.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel h3{font-size:1.5rem;margin-bottom:.5rem}
+.panel ul{margin:.8rem 0 0 1.2rem}
+.tag{display:inline-block;background:var(--saffron);color:#2b1a17;font-size:.8rem;font-weight:700;padding:.15rem .6rem;border-radius:6px;margin:.8rem .3rem 0 0}
 
-        /* Secciones de Contenido */
-        .section-wrapper {
-            background-color: white;
-            padding: 3rem;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-top
+/* Acordeón */
+.acc{border-bottom:1px solid var(--line)}
+.acc button{width:100%;text-align:left;background:none;border:0;padding:1.1rem 0;display:flex;justify-content:space-between;gap:1rem;cursor:pointer;color:var(--wine);font:700 1.1rem 'Fraunces',serif}
+.acc button span{color:var(--chili);transition:transform .25s}
+.acc button[aria-expanded="true"] span{transform:rotate(45deg)}
+.acc .body{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--clay)}
+.acc .body p{padding-bottom:1.1rem}
+
+/* Habilidades */
+.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.chip{border:1px solid var(--clay);background:transparent;color:var(--ink);padding:.4rem .9rem;border-radius:999px;cursor:pointer;font:500 .9rem 'DM Sans',sans-serif}
+.chip.on{background:var(--chili);border-color:var(--chili);color:#fff}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+.skill{padding:.9rem 1rem;border-radius:12px;background:var(--paper);border:1px solid var(--line);font-weight:500}
+.skill.hide{display:none}
+
+/* Certificaciones */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.cert{text-align:left;cursor:pointer;font:inherit;color:inherit}
+.cert:hover{border-color:var(--chili)}
+.cert strong{display:block;font-family:'Fraunces',serif;font-size:1.2rem;color:var(--wine)}
+dialog{border:0;border-radius:16px;padding:2rem;max-width:440px;width:90%;background:var(--paper);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(30,10,10,.55)}
+dialog h3{margin-bottom:.6rem}
+dialog .btn{margin-top:1.2rem}
+
+/* Hobbies */
+.hobbies{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.flip{perspective:900px;height:150px;cursor:pointer;border:0;background:none;font:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.2rem}
+.flip .f{background:var(--wine);color:var(--sand);font:700 1.3rem 'Fraunces',serif}
+.flip .b{background:var(--saffron);color:#2b1a17;transform:rotateY(180deg)}
+
+footer{margin-top:5rem;padding:2.5rem 5%;text-align:center;border-top:1px solid var(--line);color:var(--clay)}
+footer a{color:var(--chili);font-weight:700}
+
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:6.5rem}
+  .photo{max-width:300px}
+  .links a{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#inicio">Henyer M.</a>
+  <div class="links">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#trayectoria">Trayectoria</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#certificaciones">Certificaciones</a>
+    <button id="theme" aria-label="Cambiar tema">🌙</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="inicio">
+    <div>
+      <div class="typed" id="typed"></div>
+      <h1>Henyer Manrique</h1>
+      <p>Estudiante de décimo ciclo en la UNS. Diseño infraestructura en la nube, trabajo con contenedores y exploro la inteligencia artificial con Python.</p>
+      <a class="btn" href="#proyectos">Ver proyectos</a>
+      <a class="btn alt" href="https://github.com/Henyer2" target="_blank" rel="noopener">Mi GitHub</a>
+    </div>
+    <div class="photo"><img src="mifoto.jpeg" alt="Henyer Manrique frente a una laguna nevada en Cusco"></div>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-p="p1">Arquitectura en GCP</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="p2">Docker y PostgreSQL</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="p3">IA con Python</button>
+    </div>
+    <div class="card">
+      <div class="panel on" id="p1">
+        <h3>Arquitectura Cloud en Google Cloud</h3>
+        <p>Máquinas virtuales configuradas y publicadas con Nginx, con acceso seguro por SSH mediante túnel IAP desde Cloud Shell.</p>
+        <ul><li>Creación de VMs desde la consola de comandos</li><li>Acceso remoto sin exponer puertos innecesarios</li><li>Verificación de servicios web</li></ul>
+        <span class="tag">GCP</span><span class="tag">Nginx</span><span class="tag">Linux</span>
+      </div>
+      <div class="panel" id="p2">
+        <h3>Contenedores con Docker y PostgreSQL</h3>
+        <p>Entornos reproducibles con bases de datos en contenedores, listos para levantar con un solo comando.</p>
+        <ul><li>Imágenes y volúmenes para persistir datos</li><li>Conexión entre servicios</li></ul>
+        <span class="tag">Docker</span><span class="tag">PostgreSQL</span>
+      </div>
+      <div class="panel" id="p3">
+        <h3>Investigación en Inteligencia Artificial</h3>
+        <p>Experimentos de análisis y modelado de datos con Python, incluyendo analítica aplicada al fútbol.</p>
+        <ul><li>Limpieza y exploración de datos</li><li>Modelos y visualización de resultados</li></ul>
+        <span class="tag">Python</span><span class="tag">Data Analytics</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trayectoria">
+    <h2>Trayectoria</h2>
+    <div class="acc"><button aria-expanded="false">Universidad Nacional del Santa (UNS) <span>+</span></button>
+      <div class="body"><p>Cursando el 10° ciclo de la carrera. Base sólida en redes, sistemas, bases de datos y desarrollo de software.</p></div></div>
+    <div class="acc"><button aria-expanded="false">Pasantía en Cusco <span>+</span></button>
+      <div class="body"><p>Experiencia profesional en entorno real, aplicando lo aprendido en la universidad y trabajando en equipo.</p></div></div>
+    <div class="acc"><button aria-expanded="false">Investigación en IA <span>+</span></button>
+      <div class="body"><p>Trabajo con Python para explorar modelos de inteligencia artificial y análisis de datos.</p></div></div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <div class="chips" id="chips">
+      <button class="chip on" data-f="all">Todas</button>
+      <button class="chip" data-f="cloud">Cloud</button>
+      <button class="chip" data-f="datos">Datos</button>
+      <button class="chip" data-f="redes">Redes</button>
+    </div>
+    <div class="skills">
+      <div class="skill" data-c="cloud">Google Cloud (GCP)</div>
+      <div class="skill" data-c="cloud">Docker</div>
+      <div class="skill" data-c="cloud">Nginx y Linux</div>
+      <div class="skill" data-c="datos">PostgreSQL</div>
+      <div class="skill" data-c="datos">Python</div>
+      <div class="skill" data-c="datos">Data Analytics</div>
+      <div class="skill" data-c="redes">Redes (Cisco)</div>
+      <div class="skill" data-c="redes">SSH y túneles IAP</div>
+    </div>
+  </section>
+
+  <section id="certificaciones">
+    <h2>Certificaciones</h2>
+    <div class="certs">
+      <button class="card cert" data-t="UNI" data-d="Certificación obtenida en la Universidad Nacional de Ingeniería."><strong>UNI</strong>Toca para ver más</button>
+      <button class="card cert" data-t="SCRUM" data-d="Formación en metodologías ágiles: roles, eventos y artefactos de Scrum."><strong>SCRUM</strong>Toca para ver más</button>
+      <button class="card cert" data-t="Cisco" data-d="Formación en redes con la academia Cisco."><strong>Cisco</strong>Toca para ver más</button>
+    </div>
+  </section>
+
+  <section id="hobbies">
+    <h2>Fuera del código</h2>
+    <div class="hobbies">
+      <button class="flip"><div class="in"><div class="f">Culturismo</div><div class="b">Disciplina y constancia: lo que aplico también al estudio.</div></div></button>
+      <button class="flip"><div class="in"><div class="f">Fútbol y datos</div><div class="b">Analizo partidos con estadísticas y Python.</div></div></button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Henyer Manrique · Trujillo, Perú · <a href="https://github.com/Henyer2" target="_blank" rel="noopener">github.com/Henyer2</a></p>
+</footer>
+
+<dialog id="dlg"><h3 id="dt"></h3><p id="dd"></p><button class="btn" id="close">Cerrar</button></dialog>
+
+<script>
+// Texto que se escribe solo
+(function(){
+  var words=["Estudiante de Ingeniería","Cloud y contenedores","Python e IA"],w=0,c=0,del=false,el=document.getElementById("typed");
+  function tick(){
+    var t=words[w];
+    el.textContent=t.slice(0,c);
+    if(!del&&c===t.length){del=true;return setTimeout(tick,1400)}
+    if(del&&c===0){del=false;w=(w+1)%words.length}
+    c+=del?-1:1;
+    setTimeout(tick,del?40:80);
+  }
+  tick();
+})();
+
+// Pestañas
+document.querySelectorAll(".tab").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected","false")});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("on")});
+    b.setAttribute("aria-selected","true");
+    document.getElementById(b.dataset.p).classList.add("on");
+  });
+});
+
+// Acordeón
+document.querySelectorAll(".acc button").forEach(function(b){
+  b.addEventListener("click",function(){
+    var body=b.nextElementSibling,open=b.getAttribute("aria-expanded")==="true";
+    b.setAttribute("aria-expanded",String(!open));
+    body.style.maxHeight=open?0:body.scrollHeight+"px";
+  });
+});
+
+// Filtro de habilidades
+document.querySelectorAll(".chip").forEach(function(ch){
+  ch.addEventListener("click",function(){
+    document.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")});
+    ch.classList.add("on");
+    document.querySelectorAll(".skill").forEach(function(s){
+      s.classList.toggle("hide",ch.dataset.f!=="all"&&s.dataset.c!==ch.dataset.f);
+    });
+  });
+});
+
+// Certificaciones (ventana)
+var dlg=document.getElementById("dlg");
+document.querySelectorAll(".cert").forEach(function(c){
+  c.addEventListener("click",function(){
+    document.getElementById("dt").textContent=c.dataset.t;
+    document.getElementById("dd").textContent=c.dataset.d;
+    dlg.showModal();
+  });
+});
+document.getElementById("close").addEventListener("click",function(){dlg.close()});
+
+// Tarjetas que giran
+document.querySelectorAll(".flip").forEach(function(f){
+  f.addEventListener("click",function(){f.classList.toggle("on")});
+});
+
+// Tema claro/oscuro
+var root=document.documentElement,tb=document.getElementById("theme");
+tb.addEventListener("click",function(){
+  var dark=root.dataset.theme==="dark";
+  root.dataset.theme=dark?"light":"dark";
+  tb.textContent=dark?"🌙":"☀️";
+});
+</script>
+</body>
+</html>
