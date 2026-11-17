@@ -3,51 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Henyer Manrique | Portafolio</title>
+<title>Henyer Manrique Barrionuevo | Portafolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --sand:#fbf1e4; --paper:#fffaf3; --wine:#3d1a22; --chili:#d9432b;
-  --saffron:#f4a62a; --clay:#8a5a44; --line:#ecd9c2; --ink:#2b1a17;
-}
-:root[data-theme="dark"]{
-  --sand:#1f1311; --paper:#2a1a17; --wine:#f6e6d3; --chili:#ff7a5c;
-  --saffron:#f4b544; --clay:#d2a58c; --line:#4a312b; --ink:#f6e6d3;
-}
+:root{--sand:#fbf1e4;--paper:#fffaf3;--wine:#3d1a22;--chili:#d9432b;--saffron:#f4a62a;--clay:#8a5a44;--line:#ecd9c2;--ink:#2b1a17}
+:root[data-theme="dark"]{--sand:#1f1311;--paper:#2a1a17;--wine:#f6e6d3;--chili:#ff7a5c;--saffron:#f4b544;--clay:#d2a58c;--line:#4a312b;--ink:#f6e6d3}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.65;transition:background .3s,color .3s}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:var(--wine);line-height:1.15}
 a:focus-visible,button:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
-
 nav{position:fixed;top:0;width:100%;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.8rem 5%;background:color-mix(in srgb,var(--sand) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.25rem;color:var(--chili);text-decoration:none}
-.links{display:flex;gap:1.3rem;align-items:center}
-.links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+.links{display:flex;gap:1.2rem;align-items:center}
+.links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.92rem}
 .links a:hover{color:var(--chili)}
 #theme{background:var(--paper);border:1px solid var(--line);color:var(--ink);border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:1.1rem}
-
 main{max-width:1050px;margin:0 auto;padding:0 5%}
 section{padding:4.5rem 0 1rem}
 section>h2{font-size:2rem;margin-bottom:1.5rem}
-
-/* Hero */
+.lead{color:var(--clay);max-width:60ch;margin-bottom:1.5rem}
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding-top:8rem}
-.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;margin-bottom:1rem}
 .hero p{max-width:52ch;color:var(--clay);font-size:1.1rem;margin-bottom:1.5rem}
-.typed{color:var(--chili);font-weight:700;min-height:1.7em;margin-bottom:1rem;font-size:1.15rem}
+.typed{color:var(--chili);font-weight:700;min-height:1.7em;margin-bottom:.8rem;font-size:1.15rem}
 .typed::after{content:"|";animation:blink 1s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
-.btn{display:inline-block;background:var(--chili);color:#fff;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn{display:inline-block;background:var(--chili);color:#fff;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font:700 1rem 'DM Sans',sans-serif}
 .btn:hover{filter:brightness(1.1)}
 .btn.alt{background:transparent;color:var(--wine);border:2px solid var(--wine);margin-left:.5rem}
-.photo{position:relative}
+.btn.sm{padding:.45rem .9rem;font-size:.9rem;margin-top:1rem}
 .photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 24px 24px;border:5px solid var(--saffron);background:var(--line)}
-
-/* Tarjetas */
 .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.5rem}
 
-/* Pestañas de proyectos */
+/* Datos rápidos */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.facts .card strong{display:block;font-family:'Fraunces',serif;font-size:1.15rem;color:var(--wine)}
+.facts .card span{color:var(--clay);font-size:.95rem}
+
+/* Línea de estudios */
+.timeline{border-left:3px solid var(--saffron);padding-left:1.5rem;display:grid;gap:1.4rem}
+.timeline .item{position:relative}
+.timeline .item::before{content:"";position:absolute;left:-2.05rem;top:.45rem;width:13px;height:13px;border-radius:50%;background:var(--chili)}
+.timeline h3{font-size:1.25rem}
+.timeline .when{color:var(--chili);font-weight:700;font-size:.9rem}
+.timeline p{color:var(--clay)}
+
+/* Pestañas */
 .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .tab{background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:.55rem 1rem;border-radius:999px;cursor:pointer;font:500 .95rem 'DM Sans',sans-serif}
 .tab[aria-selected="true"]{background:var(--wine);color:var(--sand);border-color:var(--wine)}
@@ -64,13 +66,14 @@ section>h2{font-size:2rem;margin-bottom:1.5rem}
 .acc button span{color:var(--chili);transition:transform .25s}
 .acc button[aria-expanded="true"] span{transform:rotate(45deg)}
 .acc .body{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--clay)}
-.acc .body p{padding-bottom:1.1rem}
+.acc .body p,.acc .body ul{padding-bottom:1.1rem}
+.acc .body ul{margin-left:1.2rem}
 
 /* Habilidades */
 .chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
 .chip{border:1px solid var(--clay);background:transparent;color:var(--ink);padding:.4rem .9rem;border-radius:999px;cursor:pointer;font:500 .9rem 'DM Sans',sans-serif}
 .chip.on{background:var(--chili);border-color:var(--chili);color:#fff}
-.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem}
 .skill{padding:.9rem 1rem;border-radius:12px;background:var(--paper);border:1px solid var(--line);font-weight:500}
 .skill.hide{display:none}
 
@@ -79,10 +82,6 @@ section>h2{font-size:2rem;margin-bottom:1.5rem}
 .cert{text-align:left;cursor:pointer;font:inherit;color:inherit}
 .cert:hover{border-color:var(--chili)}
 .cert strong{display:block;font-family:'Fraunces',serif;font-size:1.2rem;color:var(--wine)}
-dialog{border:0;border-radius:16px;padding:2rem;max-width:440px;width:90%;background:var(--paper);color:var(--ink);margin:auto}
-dialog::backdrop{background:rgba(30,10,10,.55)}
-dialog h3{margin-bottom:.6rem}
-dialog .btn{margin-top:1.2rem}
 
 /* Hobbies */
 .hobbies{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
@@ -93,14 +92,20 @@ dialog .btn{margin-top:1.2rem}
 .flip .f{background:var(--wine);color:var(--sand);font:700 1.3rem 'Fraunces',serif}
 .flip .b{background:var(--saffron);color:#2b1a17;transform:rotateY(180deg)}
 
+/* Ventanas */
+dialog{border:0;border-radius:16px;padding:1.6rem;max-width:440px;width:90%;background:var(--paper);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(30,10,10,.7)}
+dialog h3{margin-bottom:.6rem}
+#viewer{max-width:860px;padding:1rem}
+#viewer img{width:100%;max-height:70vh;object-fit:contain;border-radius:10px;display:block;background:var(--line)}
+#viewer .ph{display:none;height:260px;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,var(--saffron),var(--chili));color:#fff;font:700 1.1rem 'Fraunces',serif;text-align:center;padding:1rem}
+#viewer .bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.8rem}
+#viewer .bar p{color:var(--clay);flex:1}
+.nb{background:var(--wine);color:var(--sand);border:0;border-radius:8px;width:40px;height:40px;cursor:pointer;font-size:1.1rem}
+
 footer{margin-top:5rem;padding:2.5rem 5%;text-align:center;border-top:1px solid var(--line);color:var(--clay)}
 footer a{color:var(--chili);font-weight:700}
-
-@media(max-width:760px){
-  .hero{grid-template-columns:1fr;padding-top:6.5rem}
-  .photo{max-width:300px}
-  .links a{display:none}
-}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:6.5rem}.photo{max-width:300px}.links a{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -109,10 +114,10 @@ footer a{color:var(--chili);font-weight:700}
 <nav>
   <a class="logo" href="#inicio">Henyer M.</a>
   <div class="links">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#estudios">Estudios</a>
     <a href="#proyectos">Proyectos</a>
-    <a href="#trayectoria">Trayectoria</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#certificaciones">Certificaciones</a>
+    <a href="#contacto">Contacto</a>
     <button id="theme" aria-label="Cambiar tema">🌙</button>
   </div>
 </nav>
@@ -121,12 +126,38 @@ footer a{color:var(--chili);font-weight:700}
   <section class="hero" id="inicio">
     <div>
       <div class="typed" id="typed"></div>
-      <h1>Henyer Manrique</h1>
-      <p>Estudiante de décimo ciclo en la UNS. Diseño infraestructura en la nube, trabajo con contenedores y exploro la inteligencia artificial con Python.</p>
+      <h1>Henyer Manrique Barrionuevo</h1>
+      <p>Estudiante de Ingeniería de Sistemas e Informática, de Nuevo Chimbote, Áncash. Trabajo con infraestructura en la nube, contenedores y análisis de datos con Python.</p>
       <a class="btn" href="#proyectos">Ver proyectos</a>
-      <a class="btn alt" href="https://github.com/Henyer2" target="_blank" rel="noopener">Mi GitHub</a>
+      <a class="btn alt" href="#contacto">Contacto</a>
     </div>
     <div class="photo"><img src="mifoto.jpeg" alt="Henyer Manrique frente a una laguna nevada en Cusco"></div>
+  </section>
+
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <div class="facts">
+      <div class="card"><strong>Nuevo Chimbote</strong><span>Áncash, Perú</span></div>
+      <div class="card"><strong>Ingeniería de Sistemas e Informática</strong><span>Universidad Nacional del Santa</span></div>
+      <div class="card"><strong>2022 a 2026</strong><span>Ingreso y egreso</span></div>
+      <div class="card"><strong>Cloud, datos e IA</strong><span>GCP, Docker, PostgreSQL, Python</span></div>
+    </div>
+  </section>
+
+  <section id="estudios">
+    <h2>Estudios</h2>
+    <div class="timeline">
+      <div class="item">
+        <span class="when">2022 a 2026</span>
+        <h3>Ingeniería de Sistemas e Informática</h3>
+        <p>Universidad Nacional del Santa (UNS). Décimo ciclo.</p>
+      </div>
+      <div class="item">
+        <span class="when">Educación secundaria</span>
+        <h3>I.E.E. República Argentina</h3>
+        <p>Nuevo Chimbote, Áncash.</p>
+      </div>
+    </div>
   </section>
 
   <section id="proyectos">
@@ -139,38 +170,40 @@ footer a{color:var(--chili);font-weight:700}
     <div class="card">
       <div class="panel on" id="p1">
         <h3>Arquitectura Cloud en Google Cloud</h3>
-        <p>Máquinas virtuales configuradas y publicadas con Nginx, con acceso seguro por SSH mediante túnel IAP desde Cloud Shell.</p>
-        <ul><li>Creación de VMs desde la consola de comandos</li><li>Acceso remoto sin exponer puertos innecesarios</li><li>Verificación de servicios web</li></ul>
-        <span class="tag">GCP</span><span class="tag">Nginx</span><span class="tag">Linux</span>
+        <p>Máquinas virtuales con Nginx y acceso seguro por SSH mediante túnel IAP desde Cloud Shell.</p>
+        <span class="tag">GCP</span><span class="tag">Nginx</span><span class="tag">Linux</span><br>
+        <button class="btn sm" data-shot="proyecto-gcp.png" data-t="Captura del proyecto en GCP">Ver captura</button>
       </div>
       <div class="panel" id="p2">
         <h3>Contenedores con Docker y PostgreSQL</h3>
-        <p>Entornos reproducibles con bases de datos en contenedores, listos para levantar con un solo comando.</p>
-        <ul><li>Imágenes y volúmenes para persistir datos</li><li>Conexión entre servicios</li></ul>
-        <span class="tag">Docker</span><span class="tag">PostgreSQL</span>
+        <p>Entornos reproducibles con bases de datos en contenedores.</p>
+        <span class="tag">Docker</span><span class="tag">PostgreSQL</span><br>
+        <button class="btn sm" data-shot="proyecto-docker.png" data-t="Captura del proyecto con Docker">Ver captura</button>
       </div>
       <div class="panel" id="p3">
         <h3>Investigación en Inteligencia Artificial</h3>
         <p>Experimentos de análisis y modelado de datos con Python, incluyendo analítica aplicada al fútbol.</p>
-        <ul><li>Limpieza y exploración de datos</li><li>Modelos y visualización de resultados</li></ul>
-        <span class="tag">Python</span><span class="tag">Data Analytics</span>
+        <span class="tag">Python</span><span class="tag">Data Analytics</span><br>
+        <button class="btn sm" data-shot="proyecto-ia.png" data-t="Captura del proyecto de IA">Ver captura</button>
       </div>
     </div>
   </section>
 
-  <section id="trayectoria">
-    <h2>Trayectoria</h2>
-    <div class="acc"><button aria-expanded="false">Universidad Nacional del Santa (UNS) <span>+</span></button>
-      <div class="body"><p>Cursando el 10° ciclo de la carrera. Base sólida en redes, sistemas, bases de datos y desarrollo de software.</p></div></div>
+  <section id="experiencia">
+    <h2>Experiencia y certificaciones</h2>
     <div class="acc"><button aria-expanded="false">Pasantía en Cusco <span>+</span></button>
-      <div class="body"><p>Experiencia profesional en entorno real, aplicando lo aprendido en la universidad y trabajando en equipo.</p></div></div>
-    <div class="acc"><button aria-expanded="false">Investigación en IA <span>+</span></button>
-      <div class="body"><p>Trabajo con Python para explorar modelos de inteligencia artificial y análisis de datos.</p></div></div>
+      <div class="body"><p>Pasantía profesional en Cusco, donde apliqué lo aprendido en la universidad en un entorno real de trabajo.</p></div></div>
+    <br>
+    <div class="certs">
+      <button class="card cert" data-t="UNI" data-d="Certificación de la Universidad Nacional de Ingeniería."><strong>UNI</strong>Toca para ver más</button>
+      <button class="card cert" data-t="SCRUM" data-d="Formación en metodologías ágiles con Scrum."><strong>SCRUM</strong>Toca para ver más</button>
+      <button class="card cert" data-t="Cisco" data-d="Formación en redes con Cisco."><strong>Cisco</strong>Toca para ver más</button>
+    </div>
   </section>
 
   <section id="habilidades">
     <h2>Habilidades</h2>
-    <div class="chips" id="chips">
+    <div class="chips">
       <button class="chip on" data-f="all">Todas</button>
       <button class="chip" data-f="cloud">Cloud</button>
       <button class="chip" data-f="datos">Datos</button>
@@ -188,41 +221,78 @@ footer a{color:var(--chili);font-weight:700}
     </div>
   </section>
 
-  <section id="certificaciones">
-    <h2>Certificaciones</h2>
-    <div class="certs">
-      <button class="card cert" data-t="UNI" data-d="Certificación obtenida en la Universidad Nacional de Ingeniería."><strong>UNI</strong>Toca para ver más</button>
-      <button class="card cert" data-t="SCRUM" data-d="Formación en metodologías ágiles: roles, eventos y artefactos de Scrum."><strong>SCRUM</strong>Toca para ver más</button>
-      <button class="card cert" data-t="Cisco" data-d="Formación en redes con la academia Cisco."><strong>Cisco</strong>Toca para ver más</button>
-    </div>
-  </section>
-
   <section id="hobbies">
     <h2>Fuera del código</h2>
     <div class="hobbies">
-      <button class="flip"><div class="in"><div class="f">Culturismo</div><div class="b">Disciplina y constancia: lo que aplico también al estudio.</div></div></button>
+      <button class="flip"><div class="in"><div class="f">Culturismo</div><div class="b">Disciplina y constancia, que también aplico al estudio.</div></div></button>
       <button class="flip"><div class="in"><div class="f">Fútbol y datos</div><div class="b">Analizo partidos con estadísticas y Python.</div></div></button>
     </div>
   </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p class="lead">Busco prácticas y proyectos en tecnología.</p>
+    <a class="btn" href="https://github.com/Henyer2" target="_blank" rel="noopener">GitHub</a>
+    <!-- COMPLETAR: agrega aquí tu correo y LinkedIn, por ejemplo:
+    <a class="btn alt" href="mailto:tucorreo@gmail.com">Correo</a>
+    <a class="btn alt" href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a> -->
+  </section>
 </main>
 
-<footer>
-  <p>Henyer Manrique · Trujillo, Perú · <a href="https://github.com/Henyer2" target="_blank" rel="noopener">github.com/Henyer2</a></p>
-</footer>
+<footer><p>Henyer Manrique Barrionuevo · Nuevo Chimbote, Áncash · <a href="https://github.com/Henyer2" target="_blank" rel="noopener">github.com/Henyer2</a></p></footer>
 
-<dialog id="dlg"><h3 id="dt"></h3><p id="dd"></p><button class="btn" id="close">Cerrar</button></dialog>
+<dialog id="dlg"><h3 id="dt"></h3><p id="dd"></p><button class="btn sm" id="close">Cerrar</button></dialog>
+
+<dialog id="viewer">
+  <img id="vimg" alt="">
+  <div class="ph" id="vph"></div>
+  <div class="bar">
+    <button class="nb" id="prev" aria-label="Anterior">‹</button>
+    <p id="vcap"></p>
+    <button class="nb" id="next" aria-label="Siguiente">›</button>
+    <button class="btn sm" id="vclose" style="margin:0">Cerrar</button>
+  </div>
+</dialog>
 
 <script>
+var list=[],idx=0;
+var viewer=document.getElementById("viewer"),vimg=document.getElementById("vimg"),vph=document.getElementById("vph"),vcap=document.getElementById("vcap");
+
+function show(i){
+  idx=(i+list.length)%list.length;
+  var p=list[idx];
+  vimg.style.display="block";vph.style.display="none";
+  vimg.onerror=function(){vimg.style.display="none";vph.style.display="flex";vph.textContent=p.t+" (foto próximamente)"};
+  vimg.src=p.src;vimg.alt=p.t;
+  vcap.textContent=p.t+(p.d?" - "+p.d:"");
+  document.getElementById("prev").style.visibility=document.getElementById("next").style.visibility=list.length>1?"visible":"hidden";
+  if(!viewer.open)viewer.showModal();
+}
+
+// Capturas de proyectos
+document.querySelectorAll("[data-shot]").forEach(function(b){
+  b.addEventListener("click",function(){
+    list=[{src:b.dataset.shot,t:b.dataset.t,d:""}];show(0);
+  });
+});
+document.getElementById("prev").onclick=function(){show(idx-1)};
+document.getElementById("next").onclick=function(){show(idx+1)};
+document.getElementById("vclose").onclick=function(){viewer.close()};
+viewer.addEventListener("click",function(e){if(e.target===viewer)viewer.close()});
+document.addEventListener("keydown",function(e){
+  if(!viewer.open)return;
+  if(e.key==="ArrowLeft")show(idx-1);
+  if(e.key==="ArrowRight")show(idx+1);
+});
+
 // Texto que se escribe solo
 (function(){
-  var words=["Estudiante de Ingeniería","Cloud y contenedores","Python e IA"],w=0,c=0,del=false,el=document.getElementById("typed");
+  var words=["Estudiante de Ingeniería de Sistemas","Cloud y contenedores","Python e IA"],w=0,c=0,del=false,el=document.getElementById("typed");
   function tick(){
-    var t=words[w];
-    el.textContent=t.slice(0,c);
+    var t=words[w];el.textContent=t.slice(0,c);
     if(!del&&c===t.length){del=true;return setTimeout(tick,1400)}
     if(del&&c===0){del=false;w=(w+1)%words.length}
-    c+=del?-1:1;
-    setTimeout(tick,del?40:80);
+    c+=del?-1:1;setTimeout(tick,del?40:80);
   }
   tick();
 })();
@@ -257,7 +327,7 @@ document.querySelectorAll(".chip").forEach(function(ch){
   });
 });
 
-// Certificaciones (ventana)
+// Certificaciones
 var dlg=document.getElementById("dlg");
 document.querySelectorAll(".cert").forEach(function(c){
   c.addEventListener("click",function(){
@@ -266,14 +336,14 @@ document.querySelectorAll(".cert").forEach(function(c){
     dlg.showModal();
   });
 });
-document.getElementById("close").addEventListener("click",function(){dlg.close()});
+document.getElementById("close").onclick=function(){dlg.close()};
 
 // Tarjetas que giran
 document.querySelectorAll(".flip").forEach(function(f){
   f.addEventListener("click",function(){f.classList.toggle("on")});
 });
 
-// Tema claro/oscuro
+// Tema
 var root=document.documentElement,tb=document.getElementById("theme");
 tb.addEventListener("click",function(){
   var dark=root.dataset.theme==="dark";
